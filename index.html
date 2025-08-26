@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>24-Hour Analog Clock</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js'></script>
+    </head>
+    <body>
+        <h1>Today is the Last Day of the Rest of Your Life. 2025</h1>
+        <hr>
+        <canvas id="clockCanvas" width="500" height="500"></canvas>
+        <script src="clock.js"></script>
+        <div id='calendar' style="width: 40%;"></div>
+
+        test
+        <div id="clock"></div>
+
+        <script>
+            function updateClock() {
+                const now = new Date();
+                const clock = document.getElementById('clock');
+                clock.textContent = now.toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: true
+                });
+            }
+
+            // Update immediately and then every second
+            updateClock();
+            setInterval(updateClock, 1000);
+        </script>
+
+
+
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar');
+
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    // timeZone: 'UTC',
+                    initialView: 'dayGridMonth',
+                    headerToolbar: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridWeek,dayGridMonth,multiMonthYear'  // dayGridDay, dayGridYear
+                    },
+                    editable: true,
+                    events: '/api/demo-feeds/events.json'
+                });
+
+                calendar.render();
+              });
+
+        </script>
+
+        <style>
+            /* Align date numbers to the right */
+            .fc .fc-daygrid-day-number {
+                margin: auto;
+                text-align: center;
+                font-size: 1.6em;
+                margin-top: 10px;
+            }
+
+            .fc .fc-col-header-cell-cushion {
+                font-size: 1.4em;
+            }
+        </style>
+
+
+    </body>
+</html>
