@@ -72,12 +72,46 @@
             }
         </style>
 
-        <script type="module">
-            import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
-            Chatbot.init({
-                chatflowid: "c719a6f5-9be7-406b-8597-98f744ab853a",
-                apiHost: "https://cloud.flowiseai.com",
-            })
-        </script>
+
+<script>
+ window.difyChatbotConfig = {
+  token: 'MBv7W7k4AqswupfO',
+  inputs: {
+    // You can define the inputs from the Start node here
+    // key is the variable name
+    // e.g.
+    // name: "NAME"
+  },
+  systemVariables: {
+    // user_id: 'YOU CAN DEFINE USER ID HERE',
+    // conversation_id: 'YOU CAN DEFINE CONVERSATION ID HERE, IT MUST BE A VALID UUID',
+  },
+  userVariables: {
+    // avatar_url: 'YOU CAN DEFINE USER AVATAR URL HERE',
+    // name: 'YOU CAN DEFINE USER NAME HERE',
+  },
+ }
+</script>
+<script
+ src="https://udify.app/embed.min.js"
+ id="MBv7W7k4AqswupfO"
+ defer>
+</script>
+<style>
+  #dify-chatbot-bubble-button {
+    background-color: #1C64F2 !important;
+  }
+  #dify-chatbot-bubble-window {
+    width: 24rem !important;
+    height: 40rem !important;
+  }
+</style>
+
+
+
+
+
+
+        
     </body>
 </html>
